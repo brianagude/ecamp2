@@ -45,11 +45,13 @@ li {
   font: normal normal bold 16px/20px Inter;
   padding: 16px 36px;
   background: $secondary;
+  border: 1px solid $secondary;
   text-align: center;
   border-radius: 50px;
 
   &:hover {
-    background: lighten($secondary, 10%);
+    background: transparent;
+    color: $white;
   }
 }
 
@@ -67,6 +69,7 @@ li {
 
   &.active { transform: none; }
 }
+
 /* HEADER ============================================================================================================ */
 header {
   position: fixed;
@@ -77,8 +80,12 @@ header {
   background: transparent;
   z-index: 3;
 
+  &.background-active {
+    background: $primary-med;
+  }
+
   @include bp(md){
-    padding: 64px 0;
+    padding: 56px 0;
   }
 
   .container {
@@ -143,7 +150,7 @@ header {
 /* HERO ============================================================================================================== */
 
 .hero-section {
-  background: linear-gradient(0deg, $primary-transparent, $primary-transparent), url('../img/hero.jpg');
+  background: linear-gradient(0deg, $primary-med, $primary-med), url('../img/hero.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
