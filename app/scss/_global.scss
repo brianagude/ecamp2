@@ -245,14 +245,16 @@ header {
 
     @include bp(md) {
       padding: 0 48px;
-      display: grid;
-      grid-template-columns: 0.8fr 1fr;
+      // display: grid;
+      // grid-template-columns: 0.8fr 1fr;
       grid-gap: 72px;
       align-items: center;
     }
 
     @include bp(lg) {
       padding: 0 148px;
+      display: grid;
+      grid-template-columns: 0.8fr 1fr;
       grid-gap: 100px; 
     }
 
@@ -263,10 +265,11 @@ header {
 
   .text-wrapper { text-align: left; }
   .image-wrapper {
-    height: 100%;
+    // height: 100%;
 
     img {
-      height: 100%;
+      display: block;
+      // height: 100%;
       object-fit: cover;
     }
   }
