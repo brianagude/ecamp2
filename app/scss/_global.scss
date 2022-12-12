@@ -1,3 +1,6 @@
+/* GLOBAL STYLES & VARIABLES ========================================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -7,12 +10,225 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+  transition: all 0.2s ease;
 }
 
 body {
-  padding: 20px;
   color: $black;
-  background-color: $gray-light;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.3;
+  background-color: $white;
+  font-family: 'Inter', sans-serif;
+  position: relative;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+small,
+li {
+  color: $black;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.33;
+}
+
+.container {
+  max-width: 1640px;
+  margin: 0 auto;
+}
+
+.btn {
+  font: normal normal bold 16px/20px Inter;
+  padding: 16px 36px;
+  background: $secondary;
+  text-align: center;
+  border-radius: 50px;
+
+  &:hover {
+    background: lighten($secondary, 10%);
+  }
+}
+
+/* MOBILE MENU ======================================================================================================= */
+.mobile-menu {
+  transform: translateX(-100%);
+  position: fixed;
+  top: 24px;
+  left: 0;
+  z-index: 5;
+
+  @include bp(md){
+    display: none;
+  }
+
+  &.active { transform: none; }
+}
+/* HEADER ============================================================================================================ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  background: transparent;
+  z-index: 3;
+
+  @include bp(md){
+    padding: 64px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include bp(md){
+      padding: 0 48px;
+    }
+  }
+
+  .header-logo {
+    img { 
+      width: 64px; 
+
+      @include bp(md){
+        width: 120px;
+      }
+    }
+  }
+
+  nav, .btn {
+    display: none;
+    @include bp(lg){
+      display: block;
+    }
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+
+    a { 
+      color: $white; 
+      &:hover { color: $gray; }
+    }
+  }
+
+  .menu-toggle {
+    &:hover {
+      cursor: pointer;
+    }
+
+    img { 
+      width: 18px; 
+
+      @include bp(md){
+        width: 24px; 
+      }
+    }
+
+    @include bp(lg){
+      display: none;
+    }
+  }
+}
+
+/* HERO ============================================================================================================== */
+
+.hero-section {
+  background: linear-gradient(0deg, $primary-transparent, $primary-transparent), url('../img/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0;
+
+  @include bp(md){ padding: 176px 0; }
+
+  .container {
+    padding: 0 48px; 
+  }
+
+  .text-wrapper {
+    text-align: center;
+  }
+
+  h2, h3, p, h6, small { color: $white; }
+
+  .hero-title {
+    font: normal normal bold 24px/29px Inter;
+
+    @include bp(md){
+      font: normal normal bold 80px/97px Inter;
+    }
+  }
+
+  .hero-subtitle {
+    font: normal normal bold 12px/15px Inter;
+    letter-spacing: 3.6px;
+
+    @include bp(md){
+      font: normal normal bold 21px/25px Inter;
+      letter-spacing: 23.1px;
+      margin-top: 4px;
+    }
+  }
+
+  .hero-text {
+    font: normal normal bold 12px/15px Inter;
+    margin-top: 20px;
+
+    @include bp(md){
+      font: normal normal bold 32px/39px Inter;
+      margin-top: 40px;
+    }
+  }
+
+  .btn {
+    margin-top: 30px;
+
+    @include bp(md){ margin-top: 48px; }
+  }
+
+  .countdown {
+    display: none;
+    max-width: 924px;
+    margin: 124px auto 0;
+
+    @include bp(md){
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 224px;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+
+      &:hover {
+        & > * { color: $secondary; }
+      }
+    }
+
+    &-number { font: normal normal bold 40px/49px Inter; }
+    &-text { font: normal normal bold 20px/24px Inter; }
+  }
+
+  
+}
+/* SECTION ONE ======================================================================================================= */
+/* SECTION TWO ======================================================================================================= */
+/* FOOTER ============================================================================================================ */
